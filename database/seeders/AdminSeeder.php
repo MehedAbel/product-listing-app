@@ -14,10 +14,10 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        if (!User::where('email', 'admin@practica.local')->exists()) {
+        if (!User::where('email', 'admin@practica.roweb')->exists()) {
             $user = new User();
             $user->name = 'Admin';
-            $user->email = 'admin@practica.local';
+            $user->email = 'admin@practica.roweb';
             $user->password = Hash::make('parola');
             $user->save();
         } 
