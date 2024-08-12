@@ -20,6 +20,6 @@ class AdminSeeder extends Seeder
             $user->email = 'admin@practica.roweb';
             $user->password = Hash::make('parola');
             $user->save();
-        } 
+        }
     }
 }
