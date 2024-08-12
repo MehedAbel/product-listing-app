@@ -21,5 +21,13 @@ class AdminSeeder extends Seeder
             $user->password = Hash::make('parola');
             $user->save();
         }
+
+        if (!User::where('email', 'andrew@practica.roweb')->exists()) {
+            $user = new User();
+            $user->name = 'Andrew';
+            $user->email = 'andrew@practica.roweb';
+            $user->password = Hash::make('parola');
+            $user->save();
+        }
     }
 }

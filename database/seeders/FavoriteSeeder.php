@@ -13,6 +13,20 @@ class FavoriteSeeder extends Seeder
      */
     public function run(): void
     {
-        Favorite::factory()->count(10)->create();
+        for ($i = 1; $i <= 2; $i++) {
+            $u_id = $i;
+            for ($j = 1; $j <= 10; $j += 2) {
+                $p_id = $j;
+                $favorite = new Favorite();
+
+                if ($favorite->where('user_id', $u_id)->where('product_id', $p_id)->exists()) {
+                    continue;
+                }
+
+                $favorite->user_id = $u_id;
+                $favorite->product_id = $p_id;
+                $favorite->save();
+            }
+        }
     }
 }
