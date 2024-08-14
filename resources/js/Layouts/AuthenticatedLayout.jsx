@@ -28,6 +28,12 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Dashboard
                                 </NavLink>
+                                <NavLink
+                                    href={route("categories.list")}
+                                    active={route().current("categories.list")}
+                                >
+                                    Categories
+                                </NavLink>
                             </div>
                         </div>
 
@@ -125,15 +131,6 @@ export default function Authenticated({ user, header, children }) {
                         " sm:hidden"
                     }
                 >
-                    <div className="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink
-                            href={route("dashboard")}
-                            active={route().current("dashboard")}
-                        >
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
-
                     <div className="pt-4 pb-1 border-t border-gray-200">
                         <div className="px-4">
                             <div className="font-medium text-base text-gray-800">
@@ -145,7 +142,16 @@ export default function Authenticated({ user, header, children }) {
                         </div>
 
                         <div className="mt-3 space-y-1">
-                            <ResponsiveNavLink href={route("profile.edit")}>
+                            <ResponsiveNavLink
+                                href={route("dashboard")}
+                                active={route().current("dashboard")}
+                            >
+                                Dashboard
+                            </ResponsiveNavLink>
+                            <ResponsiveNavLink
+                                href={route("profile.edit")}
+                                active={route().current("profile.edit")}
+                            >
                                 Profile
                             </ResponsiveNavLink>
                             <ResponsiveNavLink
