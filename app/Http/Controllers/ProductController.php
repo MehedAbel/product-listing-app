@@ -17,18 +17,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = [];
+        $products = Product::paginate(12);
 
-        foreach (Product::all() as $product) {
+        foreach ($products as $product) {
             $images = $product->images()->get();
             $category = $product->category()->get()->first();
             $product->images = $images;
             $product->category = $category;
-            $products[] = $product;
         }
 
         return Inertia::render('Products/List', [
-            'products' => $products,
+            'paginated' => $products,
         ]);
     }
 

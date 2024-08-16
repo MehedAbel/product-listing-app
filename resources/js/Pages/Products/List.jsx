@@ -3,6 +3,7 @@ import { Head, Link, router } from "@inertiajs/react";
 import { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
+import PaginationLink from "@/Components/PaginationLink";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,7 +13,11 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-export default function List({ auth, products }) {
+export default function List({ auth, paginated }) {
+    const products = paginated.data;
+    console.log(paginated);
+    console.log(products);
+
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this product?")) {
             router.delete(route("products.destroy", id));
@@ -139,6 +144,28 @@ export default function List({ auth, products }) {
                                                 />
                                             </div>
                                         </div>
+                                    );
+                                })}
+                            </div>
+                            <div className="flex justify-center items-center mt-6">
+                                {paginated.links.map((link, index) => {
+                                    return (
+                                        // <Link
+                                        //     key={index}
+                                        //     href={link.url}
+                                        //     className="mx-1 px-3 py-2 bg-gray-200 text-gray-900 font-semibold rounded-lg hover:bg-gray-300"
+                                        //     dangerouslySetInnerHTML={{
+                                        //         __html: link.label,
+                                        //     }}
+                                        // />
+                                        <PaginationLink
+                                            key={index}
+                                            href={link.url}
+                                            dangerouslySetInnerHTML={{
+                                                __html: link.label,
+                                            }}
+                                            active={link.active}
+                                        ></PaginationLink>
                                     );
                                 })}
                             </div>

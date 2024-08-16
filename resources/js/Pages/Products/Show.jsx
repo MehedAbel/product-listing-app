@@ -76,7 +76,9 @@ export default function Show({ auth, product, category, images }) {
                                     {product.description}
                                 </div>
                                 <div className="flex justify-start w-full text-md text-blue-600">
-                                    {"#" + category.name}
+                                    {category
+                                        ? "#" + category.name
+                                        : "#no category"}
                                 </div>
                             </div>
                         </div>
