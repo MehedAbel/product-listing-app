@@ -60,7 +60,7 @@ export default function List({ auth, categories }) {
                                                         {category.id}
                                                     </div>
                                                 </div>
-                                                <div className="w-1/4 flex items-center">
+                                                <div className="w-1/4 flex items-center text-nowrap">
                                                     <div className="mb-2 ">
                                                         {category.name}
                                                     </div>
@@ -80,7 +80,7 @@ export default function List({ auth, categories }) {
                                                         >
                                                             <FontAwesomeIcon
                                                                 icon={faPencil}
-                                                                className="cursor-pointer hover:text-blue-500"
+                                                                className="cursor-pointer hover:text-blue-500 hover:scale-125"
                                                             />
                                                         </Link>
                                                         <button
@@ -92,7 +92,7 @@ export default function List({ auth, categories }) {
                                                         >
                                                             <FontAwesomeIcon
                                                                 icon={faTrash}
-                                                                className="cursor-pointer hover:text-red-500"
+                                                                className="cursor-pointer hover:text-red-500 hover:scale-125"
                                                             />
                                                         </button>
                                                     </div>

@@ -14,6 +14,13 @@ class Product extends Model
     // use HasFactory;
     use HasTimestamps, HasFactory;
 
+    protected $fillable = [
+        'category_id',
+        'name',
+        'description',
+        'price',
+    ];
+
     public function images()
     {
         return $this->hasMany(ProductImage::class);

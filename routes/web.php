@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -27,6 +28,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::post('/store/{category?}', [CategoryController::class, 'store'])->name('store');
         Route::delete('{category}', [CategoryController::class, 'delete'])->name('delete');
     });
+
+    Route::resource('products', ProductController::class);
 });
 
 Route::middleware('auth')->group(function () {
