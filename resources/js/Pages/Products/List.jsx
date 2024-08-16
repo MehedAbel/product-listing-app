@@ -15,8 +15,6 @@ import "swiper/css/pagination";
 
 export default function List({ auth, paginated }) {
     const products = paginated.data;
-    console.log(paginated);
-    console.log(products);
 
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this product?")) {
