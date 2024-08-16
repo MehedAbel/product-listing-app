@@ -19,8 +19,6 @@ export default function List({ auth, products }) {
         }
     };
 
-    console.log(products);
-
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Product List" />
