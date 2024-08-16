@@ -50,10 +50,7 @@ export default function List({ auth, products }) {
                                         >
                                             {product.images.length > 0 && (
                                                 <Swiper
-                                                    modules={[
-                                                        Navigation,
-                                                        Pagination,
-                                                    ]}
+                                                    modules={[Pagination]}
                                                     spaceBetween={50}
                                                     slidesPerView={1}
                                                     pagination={{
