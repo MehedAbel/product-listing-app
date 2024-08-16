@@ -59,7 +59,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Inertia::render('Products/Show', [
+            'product' => $product,
+            'category' => $product->category()->get()->first(),
+            'images' => $product->images()->get(),
+        ]);
     }
 
     /**
@@ -67,15 +71,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $imagesUrls = $product->images()->get()->map(function ($image) {
-            return Storage::url($image->path);
-        })->toArray();
-
         return Inertia::render('Products/Edit', [
             'product' => $product,
             'categories' => Category::all(),
             'images' => $product->images()->get(),
-            'imagesUrls' => $imagesUrls
         ]);
     }
 
@@ -94,6 +93,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->images()->delete();
+        $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Product deleted successfully');
     }
 }

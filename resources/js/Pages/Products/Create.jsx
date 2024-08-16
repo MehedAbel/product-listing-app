@@ -5,6 +5,7 @@ import TextInput from "@/Components/TextInput.jsx";
 import InputError from "@/Components/InputError.jsx";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import SelectField from "@/Components/SelectField.jsx";
+import Textarea from "@/Components/Textarea.jsx";
 
 export default function Create({ auth, categories }) {
     const { data, setData, post, errors, processing } = useForm({
@@ -28,7 +29,7 @@ export default function Create({ auth, categories }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 flex flex-col gap-5">
-                            <h1 className="font-bold text-xl">
+                            <h1 className="font-bold text-2xl text-center">
                                 Create Product
                             </h1>
                             <div className="mt-3">
@@ -62,9 +63,9 @@ export default function Create({ auth, categories }) {
                                             value="Description"
                                         />
 
-                                        <TextInput
+                                        <Textarea
                                             id="description"
-                                            // type="text"
+                                            rows="8"
                                             className="mt-1 block w-full"
                                             value={data.description}
                                             onChange={(e) =>
@@ -83,7 +84,7 @@ export default function Create({ auth, categories }) {
                                     <div>
                                         <InputLabel
                                             htmlFor="price"
-                                            value="Price"
+                                            value="Price (EUR)"
                                         />
 
                                         <TextInput
