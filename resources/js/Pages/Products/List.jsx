@@ -4,6 +4,14 @@ import { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
 export default function List({ auth, products }) {
     // const handleDelete = (id) => {
     //     if (confirm("Are you sure you want to delete this category?")) {
@@ -41,16 +49,36 @@ export default function List({ auth, products }) {
                                             className="border border-gray-500 rounded-lg p-4 mt-4 shadow-lg flex flex-col"
                                         >
                                             {product.images.length > 0 && (
-                                                <div className="w-full h-48 rounded-lg overflow-hidden">
-                                                    <img
-                                                        className="object-cover w-full h-full"
-                                                        src={
-                                                            "/storage/" +
-                                                            product.images[0]
-                                                                .path
+                                                <Swiper
+                                                    modules={[
+                                                        Navigation,
+                                                        Pagination,
+                                                    ]}
+                                                    spaceBetween={50}
+                                                    slidesPerView={1}
+                                                    pagination={{
+                                                        clickable: true,
+                                                    }}
+                                                    className="w-full h-48 rounded-lg overflow-hidden"
+                                                >
+                                                    {product.images.map(
+                                                        (image, index) => {
+                                                            return (
+                                                                <SwiperSlide
+                                                                    key={index}
+                                                                >
+                                                                    <img
+                                                                        src={
+                                                                            "/storage/" +
+                                                                            image.path
+                                                                        }
+                                                                        className="object-cover w-full h-full"
+                                                                    />
+                                                                </SwiperSlide>
+                                                            );
                                                         }
-                                                    />
-                                                </div>
+                                                    )}
+                                                </Swiper>
                                             )}
                                             <div className="flex flex-col mt-3">
                                                 <div className="font-bold text-lg">
