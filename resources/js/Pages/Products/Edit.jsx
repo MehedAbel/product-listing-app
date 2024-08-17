@@ -1,4 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import ContentLayout from "@/Layouts/ContentLayout";
 import { Head, useForm } from "@inertiajs/react";
 import ProductForm from "@/Components/ProductForm.jsx";
 

@@ -1,4 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import ContentLayout from "@/Layouts/ContentLayout";
 import { Head, useForm } from "@inertiajs/react";
 import InputLabel from "@/Components/InputLabel.jsx";
 import TextInput from "@/Components/TextInput.jsx";
@@ -29,7 +30,7 @@ export default function AddEdit({ category, auth }) {
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 flex flex-col gap-5">
-                            <h1 className="font-bold text-xl text-center">
+                            <h1 className="font-bold text-2xl text-center">
                                 Add or Edit Category
                             </h1>
                             <div className="mt-3">

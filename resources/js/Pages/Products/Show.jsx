@@ -1,12 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head, useForm } from "@inertiajs/react";
-import InputLabel from "@/Components/InputLabel.jsx";
-import TextInput from "@/Components/TextInput.jsx";
-import InputError from "@/Components/InputError.jsx";
-import PrimaryButton from "@/Components/PrimaryButton.jsx";
-import SelectField from "@/Components/SelectField.jsx";
-import Textarea from "@/Components/Textarea.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ContentLayout from "@/Layouts/ContentLayout";
+import { Head } from "@inertiajs/react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,7 +13,7 @@ import "swiper/css/pagination";
 export default function Show({ auth, product, category, images }) {
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Edit Product" />
+            <Head title="Show Product" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">

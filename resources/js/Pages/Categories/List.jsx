@@ -1,4 +1,5 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import ContentLayout from "@/Layouts/ContentLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,15 +14,15 @@ export default function List({ auth, categories }) {
 
     return (
         <AuthenticatedLayout user={auth.user}>
-            <Head title="Category List" />
+            <Head title="Categories" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900 flex flex-col">
                             <div className="flex justify-between">
-                                <h1 className="font-bold text-xl">
-                                    Category List
+                                <h1 className="font-bold text-2xl">
+                                    Categories
                                 </h1>
                                 <Link
                                     href={route("categories.create")}
