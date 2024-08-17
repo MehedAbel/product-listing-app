@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
 import PaginationLink from "@/Components/PaginationLink";
+import PaginationLinks from "@/Components/PaginationLinks";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -145,28 +146,7 @@ export default function List({ auth, paginated }) {
                                     );
                                 })}
                             </div>
-                            <div className="flex justify-center items-center mt-6">
-                                {paginated.links.map((link, index) => {
-                                    return (
-                                        // <Link
-                                        //     key={index}
-                                        //     href={link.url}
-                                        //     className="mx-1 px-3 py-2 bg-gray-200 text-gray-900 font-semibold rounded-lg hover:bg-gray-300"
-                                        //     dangerouslySetInnerHTML={{
-                                        //         __html: link.label,
-                                        //     }}
-                                        // />
-                                        <PaginationLink
-                                            key={index}
-                                            href={link.url}
-                                            dangerouslySetInnerHTML={{
-                                                __html: link.label,
-                                            }}
-                                            active={link.active}
-                                        ></PaginationLink>
-                                    );
-                                })}
-                            </div>
+                            <PaginationLinks links={paginated.links} />
                         </div>
                     </div>
                 </div>
