@@ -84,18 +84,12 @@ export default function List({ auth, paginated }) {
                                                 </div>
                                             )}
                                             <div className="flex flex-col mt-3">
-                                                <div className="font-bold text-lg ">
-                                                    Name:{" "}
-                                                </div>
-                                                <div className="truncate">
+                                                <div className="truncate font-bold text-lg">
                                                     {product.name}
                                                 </div>
                                             </div>
                                             <div className="flex flex-col">
-                                                <div className="font-bold text-lg">
-                                                    Description:{" "}
-                                                </div>
-                                                <div className="overflow-hidden h-20 border-b border-gray-200">
+                                                <div className="overflow-hidden h-28 border-b border-gray-200">
                                                     {product.description}
                                                 </div>
                                             </div>
