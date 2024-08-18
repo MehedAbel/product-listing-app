@@ -12,11 +12,11 @@ export default function List({ auth, paginated }) {
             <Head title="Products" />
 
             <ContentLayout>
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                     <h1 className="font-bold text-2xl">Products</h1>
                     <Link
                         href={route("products.create")}
-                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent md:border-2 hover:bg-zinc-700 hover:text-white"
+                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                     >
                         Create Product
                     </Link>

@@ -14,7 +14,19 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                primary: ["Space Mono", ...defaultTheme.fontFamily.mono],
+                secondary: ["Muli", ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                primary: {
+                    light: "##f5f4ee",
+                    DEFAULT: "#eeece2",
+                },
+                secondary: {
+                    light: "gray-100",
+                    DEFAULT: "gray-100",
+                    dark: "#FFD700",
+                },
             },
         },
     },

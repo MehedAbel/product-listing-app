@@ -47,10 +47,12 @@ export default function ProductCard({ product, className = "" }) {
                 </div>
             )}
             <div className="flex flex-col mt-3">
-                <div className="truncate font-bold text-lg">{name}</div>
+                <div className="truncate font-bold text-lg font-primary">
+                    {name}
+                </div>
             </div>
             <div className="flex flex-col">
-                <div className="overflow-hidden h-28 border-b border-gray-200">
+                <div className="overflow-hidden h-28 border-b border-gray-200 font-secondary">
                     {description}
                 </div>
             </div>

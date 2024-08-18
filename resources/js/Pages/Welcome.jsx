@@ -6,11 +6,11 @@ export default function Welcome({ auth }) {
         <>
             <Head title="Welcome" />
             <div className="flex flex-col w-full min-h-screen">
-                <header className="flex justify-center items-center py-2 px-6 h-16 bg-white">
+                <header className="flex justify-center items-center py-7 px-6 bg-gray-100">
                     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                         <div className="flex">
                             <svg
-                                className="block h-9 w-auto fill-current text-gray-800"
+                                className="block h-12 w-auto fill-current text-gray-800"
                                 viewBox="0 0 62 65"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ export default function Welcome({ auth }) {
                             {auth.user ? (
                                 <Link
                                     href={route("dashboard")}
-                                    className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent md:border-2 hover:bg-zinc-700 hover:text-white"
+                                    className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                                 >
                                     Dashboard
                                 </Link>
@@ -33,13 +33,13 @@ export default function Welcome({ auth }) {
                                 <>
                                     <Link
                                         href={route("login")}
-                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent md:border-2 hover:bg-zinc-700 hover:text-white"
+                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                                     >
                                         Log In
                                     </Link>
                                     <Link
                                         href={route("register")}
-                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent md:border-2 hover:bg-zinc-700 hover:text-white"
+                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                                     >
                                         Register
                                     </Link>
@@ -49,13 +49,15 @@ export default function Welcome({ auth }) {
                     </div>
                 </header>
 
-                <main className="px-6 flex flex-1 bg-gray-200">
+                <main className="px-6 flex flex-1 bg-gray-100">
                     <ContentLayout>
-                        <h1 className="font-bold text-2xl font-mono">Home</h1>
+                        <h1 className="font-bold text-2xl font-primary text-center">
+                            Claude
+                        </h1>
                     </ContentLayout>
                 </main>
 
-                <footer className="flex justify-center items-center bg-white py-2 px-2 h-20">
+                <footer className="flex justify-center items-center bg-black text-white py-2 px-2 h-20">
                     Copyright © {new Date().getFullYear()} Some Dev. All rights
                     reserved.
                 </footer>
