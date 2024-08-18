@@ -10,7 +10,7 @@ export default function Welcome({ auth }) {
                     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                         <div className="flex">
                             <svg
-                                className="block h-12 w-auto fill-current text-gray-800"
+                                className="block h-12 w-auto fill-current text-zinc-700"
                                 viewBox="0 0 62 65"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
