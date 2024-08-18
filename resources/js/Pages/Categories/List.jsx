@@ -2,8 +2,11 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import ContentLayout from "@/Layouts/ContentLayout";
 import { Head, Link } from "@inertiajs/react";
 import CategoriesTable from "@/Components/CategoriesTable";
+import PaginationLinks from "@/Components/PaginationLinks";
 
-export default function List({ auth, categories }) {
+export default function List({ auth, paginated }) {
+    const categories = paginated.data;
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="Categories" />
@@ -22,6 +25,7 @@ export default function List({ auth, categories }) {
                 <div className="mt-6">
                     <CategoriesTable categories={categories} />
                 </div>
+                <PaginationLinks links={paginated.links} />
             </ContentLayout>
         </AuthenticatedLayout>
     );

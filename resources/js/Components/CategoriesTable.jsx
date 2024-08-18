@@ -12,7 +12,7 @@ export default function CategoriesTable({ categories }) {
     return (
         <table className="w-full">
             <thead>
-                <tr className="">
+                <tr className="w-full">
                     <th className="font-bold p-2">
                         <h2>ID</h2>
                     </th>
@@ -32,18 +32,18 @@ export default function CategoriesTable({ categories }) {
                     return (
                         <tr
                             key={index}
-                            className="odd:bg-white even:bg-gray-100"
+                            className="even:bg-white odd:bg-gray-100 w-full"
                         >
-                            <td className="py-3 px-4 text-center">
+                            <td className="py-3 px-4 text-center w-1/4">
                                 <div className="">{category.id}</div>
                             </td>
-                            <td className="py-2 px-4">
+                            <td className="py-3 px-4 text-center w-1/4">
                                 <div className="">{category.name}</div>
                             </td>
-                            <td className="py-2 px-4 text-center">
+                            <td className="py-3 px-4 text-center w-1/4">
                                 <div className="">{category.order}</div>
                             </td>
-                            <td className="py-2 px-4">
+                            <td className="py-3 px-4 w-1/4">
                                 <div className="flex gap-6 justify-center items-center">
                                     <Link
                                         href={route("categories.update", [
