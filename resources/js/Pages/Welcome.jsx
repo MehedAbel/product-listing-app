@@ -49,7 +49,7 @@ export default function Welcome({ auth }) {
                     </div>
                 </header>
 
-                <main className="px-6 flex flex-1 bg-gray-100">
+                <main className="px-6 flex flex-1 bg-gradient-to-b from-gray-100 to-gray-200">
                     <ContentLayout>
                         <h1 className="font-bold text-2xl text-center">Home</h1>
                     </ContentLayout>
