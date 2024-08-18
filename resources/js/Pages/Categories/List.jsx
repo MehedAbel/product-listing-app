@@ -30,16 +30,16 @@ export default function List({ auth, categories }) {
                 <div className="mt-6">
                     <div className="grid grid-cols-4">
                         <div className="w-1/4">
-                            <div className="font-bold mb-9">ID</div>
+                            <h2 className="font-bold mb-9">ID</h2>
                         </div>
                         <div className="w-1/4">
-                            <div className="font-bold mb-9">Name</div>
+                            <h2 className="font-bold mb-9">Name</h2>
                         </div>
                         <div className="w-1/4">
-                            <div className="font-bold mb-9">Order</div>{" "}
+                            <h2 className="font-bold mb-9">Order</h2>{" "}
                         </div>
                         <div className="w-1/4">
-                            <div className="font-bold mb-9">Actions</div>
+                            <h2 className="font-bold mb-9">Actions</h2>
                         </div>
 
                         {categories.map((category, index) => {

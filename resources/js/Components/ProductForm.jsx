@@ -82,7 +82,7 @@ export default function ProductForm({
             </div>
 
             <div>
-                <InputLabel htmlFor="images" value="Images" />
+                <InputLabel htmlFor="images" value="Add Images" />
                 <input
                     type="file"
                     id="images"

@@ -51,9 +51,9 @@ export default function Show({ auth, product, category, images }) {
                         </div>
                     )}
                     <div className="flex justify-between w-full flex-col sm:flex-row">
-                        <div className="font-semibold text-xl">
+                        <h2 className="font-semibold text-xl">
                             {product.name}
-                        </div>
+                        </h2>
                         <div className="font-bold text-2xl  ">
                             {"€" + product.price}
                         </div>

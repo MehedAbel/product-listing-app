@@ -51,15 +51,15 @@ export default function Welcome({ auth }) {
 
                 <main className="px-6 flex flex-1 bg-gray-100">
                     <ContentLayout>
-                        <h1 className="font-bold text-2xl font-primary text-center">
-                            Claude
-                        </h1>
+                        <h1 className="font-bold text-2xl text-center">Home</h1>
                     </ContentLayout>
                 </main>
 
-                <footer className="flex justify-center items-center bg-black text-white py-2 px-2 h-20">
-                    Copyright © {new Date().getFullYear()} Some Dev. All rights
-                    reserved.
+                <footer className="flex justify-center items-center bg-black py-2 px-2 h-20">
+                    <p className="text-white">
+                        Copyright © {new Date().getFullYear()} Some Dev. All
+                        rights reserved.
+                    </p>
                 </footer>
             </div>
         </>

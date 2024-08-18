@@ -72,7 +72,7 @@ export default function AddEdit({ category, auth }) {
                             />
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex justify-end items-center gap-4">
                             <PrimaryButton disabled={processing}>
                                 Save
                             </PrimaryButton>
