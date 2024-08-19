@@ -25,7 +25,7 @@ export default function Welcome({ auth }) {
                             {auth.user ? (
                                 <Link
                                     href={route("dashboard")}
-                                    className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
+                                    className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-lg py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                                 >
                                     Dashboard
                                 </Link>
@@ -33,13 +33,13 @@ export default function Welcome({ auth }) {
                                 <>
                                     <Link
                                         href={route("login")}
-                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
+                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-lg py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                                     >
                                         Log In
                                     </Link>
                                     <Link
                                         href={route("register")}
-                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-xl py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
+                                        className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-lg py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
                                     >
                                         Register
                                     </Link>

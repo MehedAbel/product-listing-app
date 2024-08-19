@@ -4,6 +4,17 @@ import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faUserAstronaut,
+    faUserGear,
+    faUserInjured,
+    faUserNinja,
+    faUserSecret,
+    faUserShield,
+    faUserSlash,
+    faUserXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -47,12 +58,17 @@ export default function Authenticated({ user, header, children }) {
                             <div className="ms-3 relative">
                                 <Dropdown>
                                     <Dropdown.Trigger>
-                                        <span className="inline-flex rounded-md">
+                                        <span className="inline-flex rounded-md border border-zinc-700">
                                             <button
                                                 type="button"
-                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                className="hover:bg-gray-100 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {user.name}
+
+                                                <FontAwesomeIcon
+                                                    className="h-4 ms-2"
+                                                    icon={faUserShield}
+                                                />
 
                                                 <svg
                                                     className="ms-2 -me-0.5 h-4 w-4"
