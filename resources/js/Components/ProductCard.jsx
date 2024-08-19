@@ -34,7 +34,7 @@ export default function ProductCard({ product, className = "" }) {
                         return (
                             <SwiperSlide key={index}>
                                 <img
-                                    src={"/storage/" + image.path}
+                                    src={image.path}
                                     className="object-cover w-full h-full"
                                 />
                             </SwiperSlide>

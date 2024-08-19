@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
-            FavoriteSeeder::class,
-            CommentSeeder::class,
         ]);
 
         // User::factory()->create([

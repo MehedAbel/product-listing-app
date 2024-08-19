@@ -17,10 +17,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(12);
+        $products = Product::orderBy('created_at', 'desc')->paginate(12);
 
         foreach ($products as $product) {
             $images = $product->images()->get();
+            foreach ($images as $image) {
+                $image->path = Storage::url($image->path);
+            }
             $category = $product->category()->get()->first();
             $product->images = $images;
             $product->category = $category;
@@ -46,11 +49,9 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $product = $request->createProduct();
-        $image = ProductImage::where('product_id', $product->id)->first();
-        $json_product = $product->toArray();
+        $request->createProduct();
 
-        return redirect()->route('products.index')->with('success', 'Product saved successfully : ' . json_encode($json_product) . ' Image : ' . json_encode($image));
+        return redirect()->route('products.index')->with('success', 'Product saved successfully : ');
     }
 
     /**
@@ -58,10 +59,15 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $images = $product->images()->get();
+        foreach ($images as $image) {
+            $image->path = Storage::url($image->path);
+        }
+
         return Inertia::render('Products/Show', [
             'product' => $product,
             'category' => $product->category()->get()->first(),
-            'images' => $product->images()->get(),
+            'images' => $images,
         ]);
     }
 
@@ -70,10 +76,15 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $images = $product->images()->get();
+        foreach ($images as $image) {
+            $image->path = Storage::url($image->path);
+        }
+
         return Inertia::render('Products/Edit', [
             'product' => $product,
             'categories' => Category::all(),
-            'images' => $product->images()->get(),
+            'images' => $images,
         ]);
     }
 
@@ -92,7 +103,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->images()->delete();
+        foreach ($product->images as $image) {
+            Storage::disk('public')->delete($image->path);
+        }
+
         $product->delete();
 
         return back()->with('success', 'Product deleted successfully');

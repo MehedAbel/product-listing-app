@@ -104,7 +104,7 @@ export default function ProductForm({
                                 key={index}
                             >
                                 <img
-                                    src={"/storage/" + image.path}
+                                    src={image.path}
                                     className="object-cover w-full h-full"
                                 />
                                 <button

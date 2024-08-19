@@ -17,8 +17,8 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name,
-            'order' => $this->faker->numberBetween(0, 25),
+            'name' => $this->faker->unique()->word,
+            'order' => $this->faker->unique()->numberBetween(0, 35),
         ];
     }
 }

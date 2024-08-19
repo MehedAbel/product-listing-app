@@ -37,7 +37,7 @@ export default function Show({ auth, product, category, images }) {
                                     >
                                         <div className="swiper-zoom-container h-full w-full flex justify-center items-center">
                                             <img
-                                                src={"/storage/" + image.path}
+                                                src={image.path}
                                                 className="object-contain max-h-full max-w-full"
                                             />
                                         </div>

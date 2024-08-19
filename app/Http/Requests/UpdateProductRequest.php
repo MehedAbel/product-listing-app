@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Product;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -42,6 +43,11 @@ class UpdateProductRequest extends FormRequest
         ]);
 
         if ($this->has('deleted_images_ids')) {
+            $imagesToDelete = $product->images()->whereIn('id', $this->deleted_images_ids)->get();
+            foreach ($imagesToDelete as $image) {
+                Storage::disk('public')->delete($image->path);
+            }
+
             $product->images()->whereIn('id', $this->deleted_images_ids)->delete();
         }
 
