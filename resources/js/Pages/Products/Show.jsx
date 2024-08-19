@@ -35,8 +35,10 @@ export default function Show({ auth, product, category, images }) {
                         {images.length > 0 ? (
                             <>
                                 <div
-                                    className={`hidden sm:block custom-swiper-button-prev cursor-pointer text-4xl text-zinc-800 px-4 py-2 rounded-lg z-50 bg-gray-100 mx-5 ${
-                                        isEnd.left && "text-zinc-400"
+                                    className={`hidden sm:block custom-swiper-button-prev cursor-pointer text-4xl px-4 py-2 rounded-lg z-50 bg-gray-100 mx-5 ${
+                                        isEnd.left
+                                            ? "text-zinc-400"
+                                            : "text-zinc-800"
                                     }`}
                                 >
                                     <FontAwesomeIcon icon={faChevronLeft} />
@@ -84,8 +86,10 @@ export default function Show({ auth, product, category, images }) {
                                     })}
                                 </Swiper>
                                 <div
-                                    className={`hidden sm:block custom-swiper-button-next cursor-pointer text-4xl text-zinc-800 px-4 py-2 rounded-lg z-50 bg-gray-100 mx-5 ${
-                                        isEnd.right && "text-zinc-400"
+                                    className={`hidden sm:block custom-swiper-button-next cursor-pointer text-4xl px-4 py-2 rounded-lg z-50 bg-gray-100 mx-5 ${
+                                        isEnd.right
+                                            ? "text-zinc-400"
+                                            : "text-zinc-800"
                                     }`}
                                 >
                                     <FontAwesomeIcon icon={faChevronRight} />
