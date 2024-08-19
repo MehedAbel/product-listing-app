@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: "Rubik", sans-serif;
+* {
+    font-family: "Verdana", sans-serif;
 }
 
 h1,
@@ -12,5 +12,5 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Spectral", serif;
+    font-family: "Georgia", serif;
 }
