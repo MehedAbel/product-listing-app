@@ -115,7 +115,8 @@ export default function Show({ auth, product, category, images }) {
                                     freeMode={true}
                                     watchSlidesProgress={true}
                                     modules={[FreeMode, Navigation, Thumbs]}
-                                    className="mySwiper w-full h-20 sxs:h-24 xs:h-28 mt-5"
+                                    centerInsufficientSlides={true}
+                                    className="w-full h-20 sxs:h-24 xs:h-28 mt-5"
                                     breakpoints={{
                                         1024: {
                                             slidesPerView: 6,
@@ -135,21 +136,22 @@ export default function Show({ auth, product, category, images }) {
                                         },
                                     }}
                                 >
-                                    {images.map((image, index) => {
-                                        return (
-                                            <SwiperSlide
-                                                key={index}
-                                                className="h-full"
-                                            >
-                                                <div className="h-full w-full flex justify-center items-center">
-                                                    <img
-                                                        src={image.path}
-                                                        className="object-cover h-full aspect-square border-4 border-transparent hover:border-blue-500 rounded-lg cursor-pointer"
-                                                    />
-                                                </div>
-                                            </SwiperSlide>
-                                        );
-                                    })}
+                                    {images.length > 1 &&
+                                        images.map((image, index) => {
+                                            return (
+                                                <SwiperSlide
+                                                    key={index}
+                                                    className="h-full"
+                                                >
+                                                    <div className="h-full w-full flex justify-center items-center">
+                                                        <img
+                                                            src={image.path}
+                                                            className="object-cover h-full aspect-square border-4 border-transparent hover:border-blue-500 rounded-lg cursor-pointer"
+                                                        />
+                                                    </div>
+                                                </SwiperSlide>
+                                            );
+                                        })}
                                 </Swiper>
                             </>
                         ) : (
