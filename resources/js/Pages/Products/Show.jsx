@@ -9,7 +9,6 @@ export default function Show({ auth, product, category, images }) {
             <Head title="Show Product" />
 
             <ContentLayout>
-                <h1 className="font-bold text-2xl text-center">Show Product</h1>
                 <div className="mt-3 flex flex-col items-center justify-center gap-5">
                     <ImageGallery images={images} />
                     <div className="flex justify-between w-full flex-col">
