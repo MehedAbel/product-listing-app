@@ -38,9 +38,9 @@ export default function Show({ auth, product, category, images }) {
                     <div className="w-full flex flex-col justify-center items-center">
                         {images.length > 0 ? (
                             <>
-                                <div className="w-full flex justify-center items-center">
+                                <div className="w-full flex justify-center items-center relative">
                                     <div
-                                        className={`hidden sm:block custom-swiper-button-prev cursor-pointer text-4xl px-4 py-2 rounded-lg bg-gray-100 mx-5 ${
+                                        className={`absolute nlg:static z-50 left-1 custom-swiper-button-prev cursor-pointer text-md sm:text-4xl px-4 py-2 rounded-lg bg-gray-100 mx-2 sm:mx-5 ${
                                             isEnd.left
                                                 ? "text-zinc-400"
                                                 : "text-zinc-800"
@@ -98,7 +98,7 @@ export default function Show({ auth, product, category, images }) {
                                         })}
                                     </Swiper>
                                     <div
-                                        className={`hidden sm:block custom-swiper-button-next cursor-pointer text-4xl px-4 py-2 rounded-lg bg-gray-100 mx-5 ${
+                                        className={`absolute nlg:static z-50 right-1 custom-swiper-button-next cursor-pointer text-md sm:text-4xl px-4 py-2 rounded-lg bg-gray-100 mx-2 sm:mx-5 ${
                                             isEnd.right
                                                 ? "text-zinc-400"
                                                 : "text-zinc-800"
@@ -109,35 +109,35 @@ export default function Show({ auth, product, category, images }) {
                                         />
                                     </div>
                                 </div>
-                                <Swiper
-                                    onSwiper={setThumbsSwiper}
-                                    spaceBetween={50}
-                                    freeMode={true}
-                                    watchSlidesProgress={true}
-                                    modules={[FreeMode, Navigation, Thumbs]}
-                                    centerInsufficientSlides={true}
-                                    className="w-full h-20 sxs:h-24 xs:h-28 mt-5"
-                                    breakpoints={{
-                                        1024: {
-                                            slidesPerView: 6,
-                                            spaceBetween: 10,
-                                        },
-                                        768: {
-                                            slidesPerView: 5,
-                                            spaceBetween: 10,
-                                        },
-                                        640: {
-                                            slidesPerView: 4,
-                                            spaceBetween: 10,
-                                        },
-                                        0: {
-                                            slidesPerView: 3,
-                                            spaceBetween: 10,
-                                        },
-                                    }}
-                                >
-                                    {images.length > 1 &&
-                                        images.map((image, index) => {
+                                {images.length > 1 && (
+                                    <Swiper
+                                        onSwiper={setThumbsSwiper}
+                                        spaceBetween={50}
+                                        freeMode={true}
+                                        watchSlidesProgress={true}
+                                        modules={[FreeMode, Navigation, Thumbs]}
+                                        centerInsufficientSlides={true}
+                                        className="w-full h-20 sxs:h-24 xs:h-28 mt-5"
+                                        breakpoints={{
+                                            1024: {
+                                                slidesPerView: 6,
+                                                spaceBetween: 10,
+                                            },
+                                            768: {
+                                                slidesPerView: 5,
+                                                spaceBetween: 10,
+                                            },
+                                            640: {
+                                                slidesPerView: 4,
+                                                spaceBetween: 10,
+                                            },
+                                            0: {
+                                                slidesPerView: 3,
+                                                spaceBetween: 10,
+                                            },
+                                        }}
+                                    >
+                                        {images.map((image, index) => {
                                             return (
                                                 <SwiperSlide
                                                     key={index}
@@ -152,7 +152,8 @@ export default function Show({ auth, product, category, images }) {
                                                 </SwiperSlide>
                                             );
                                         })}
-                                </Swiper>
+                                    </Swiper>
+                                )}
                             </>
                         ) : (
                             <div className="w-full max-w-3xl h-96 bg-gray-200 rounded-lg flex justify-center items-center font-mono">
