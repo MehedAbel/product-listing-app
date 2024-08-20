@@ -40,7 +40,7 @@ export default function Show({ auth, product, category, images }) {
                             <>
                                 <div className="w-full flex justify-center items-center">
                                     <div
-                                        className={`hidden sm:block custom-swiper-button-prev cursor-pointer text-4xl px-4 py-2 rounded-lg z-50 bg-gray-100 mx-5 ${
+                                        className={`hidden sm:block custom-swiper-button-prev cursor-pointer text-4xl px-4 py-2 rounded-lg bg-gray-100 mx-5 ${
                                             isEnd.left
                                                 ? "text-zinc-400"
                                                 : "text-zinc-800"
@@ -98,7 +98,7 @@ export default function Show({ auth, product, category, images }) {
                                         })}
                                     </Swiper>
                                     <div
-                                        className={`hidden sm:block custom-swiper-button-next cursor-pointer text-4xl px-4 py-2 rounded-lg z-50 bg-gray-100 mx-5 ${
+                                        className={`hidden sm:block custom-swiper-button-next cursor-pointer text-4xl px-4 py-2 rounded-lg bg-gray-100 mx-5 ${
                                             isEnd.right
                                                 ? "text-zinc-400"
                                                 : "text-zinc-800"
@@ -160,7 +160,6 @@ export default function Show({ auth, product, category, images }) {
                             </div>
                         )}
                     </div>
-                    {/* <div className="custom-pagination flex justify-center mt-4"></div> */}
                     <div className="flex justify-between w-full flex-col sm:flex-row">
                         <h2 className="font-semibold text-xl">
                             {product.name}
