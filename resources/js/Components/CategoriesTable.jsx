@@ -1,11 +1,17 @@
-import { Link, router } from "@inertiajs/react";
+import { Link, router, useForm } from "@inertiajs/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function CategoriesTable({ categories }) {
+    const { delete: deleteCategory } = useForm({});
+
     const handleDelete = (id) => {
         if (confirm("Are you sure you want to delete this category?")) {
-            router.delete(route("categories.delete", id));
+            deleteCategory(route("categories.delete", id), {
+                onFinish: () => {
+                    router.reload({ only: ["categories"] });
+                },
+            });
         }
     };
 

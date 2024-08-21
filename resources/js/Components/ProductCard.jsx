@@ -1,4 +1,4 @@
-import { Link, router } from "@inertiajs/react";
+import { Link, router, useForm } from "@inertiajs/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,10 +9,15 @@ import "swiper/css/pagination";
 
 export default function ProductCard({ product, className = "" }) {
     const { id, name, description, price, category, images } = product;
+    const { delete: deleteProduct } = useForm({});
+
     const handleDelete = (e, id) => {
-        e.preventDefault();
         if (confirm("Are you sure you want to delete this product?")) {
-            router.delete(route("products.destroy", id));
+            deleteProduct(route("products.destroy", [id]), {
+                onFinish: () => {
+                    router.reload({ only: ["products"] });
+                },
+            });
         }
     };
 
