@@ -6,6 +6,7 @@ import SelectField from "@/Components/SelectField.jsx";
 import Textarea from "@/Components/Textarea.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 export default function ProductForm({
     data,
@@ -17,6 +18,8 @@ export default function ProductForm({
     images,
     edit = false,
 }) {
+    const [currentImages, setCurrentImages] = useState(images);
+
     return (
         <form onSubmit={submit} className="mt-6 space-y-6">
             <div>
@@ -97,7 +100,7 @@ export default function ProductForm({
 
             <div className="gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                 {edit &&
-                    images.map((image, index) => {
+                    currentImages.map((image, index) => {
                         return (
                             <div
                                 className="border border-transparent overflow-hidden rounded-lg relative hover:scale-105 transform transition ease-in-out duration-100"
@@ -115,7 +118,12 @@ export default function ProductForm({
                                             image.id,
                                         ]);
 
-                                        e.target.parentElement.parentElement.parentElement.remove();
+                                        let updatedImages =
+                                            currentImages.filter((img) => {
+                                                return img.id !== image.id;
+                                            });
+
+                                        setCurrentImages(updatedImages);
                                     }}
                                 >
                                     <FontAwesomeIcon
