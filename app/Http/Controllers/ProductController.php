@@ -17,7 +17,19 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('created_at', 'desc')->paginate(12);
+        $queryParameters = request()->query();
+        $categories = explode('_', $queryParameters['categories'] ?? '');
+        $query = Product::orderBy('created_at', 'desc');
+
+        if (!empty($categories[0])) {
+            if (in_array('none', $categories)) {
+                $query->whereIn('category_id', $categories)->orwhereNull('category_id');
+            } else {
+                $query->whereIn('category_id', $categories);
+            }
+        }
+
+        $products = $query->paginate(12);
 
         foreach ($products as $product) {
             $images = $product->images()->get();
@@ -29,8 +41,15 @@ class ProductController extends Controller
             $product->category = $category;
         }
 
+        $products->appends($queryParameters);
+
+        $categories = Category::all();
+        $categories->prepend((object) ['id' => 'none', 'name' => 'No Category']);
+
         return Inertia::render('Products/List', [
             'paginated' => $products,
+            'categories' => $categories,
+            'queryParameters' => $queryParameters,
         ]);
     }
 
