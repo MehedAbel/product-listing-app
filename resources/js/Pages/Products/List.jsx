@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import ContentLayout from "@/Layouts/ContentLayout";
-import { Head, Link } from "@inertiajs/react";
+import { Head, Link, router } from "@inertiajs/react";
 import PaginationLinks from "@/Components/PaginationLinks";
 import ProductCard from "@/Components/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +17,8 @@ export default function List({ auth, paginated, categories, queryParameters }) {
     const [selectedCategories, setSelectedCategories] = useState(
         queryParameters.categories ? queryParameters.categories.split("_") : []
     );
+
+    const [search, setSearch] = useState(queryParameters.search || "");
 
     return (
         <AuthenticatedLayout user={auth.user}>
@@ -68,7 +70,7 @@ export default function List({ auth, paginated, categories, queryParameters }) {
                             );
                         })}
                     </div>
-                    <div className="mt-5 flex justify-between">
+                    <div className="mt-5 flex  justify-between gap-2">
                         <PrimaryButton
                             onClick={() => {
                                 setIsOpen(false);
@@ -80,15 +82,25 @@ export default function List({ auth, paginated, categories, queryParameters }) {
                             }}
                             className=""
                         >
-                            Close
+                            Cancel
                         </PrimaryButton>
                         <Link
                             href={route("products.index", {
-                                categories: selectedCategories.join("_"),
+                                categories: "",
+                                search: search,
                             })}
                             className="inline-flex items-center px-4 py-2 bg-zinc-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-zinc-700 active:bg-gray-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150"
                         >
-                            Filter
+                            Remove Filters
+                        </Link>
+                        <Link
+                            href={route("products.index", {
+                                categories: selectedCategories.join("_"),
+                                search: search,
+                            })}
+                            className="inline-flex items-center px-4 py-2 bg-zinc-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-zinc-700 active:bg-gray-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150"
+                        >
+                            Apply Filters
                         </Link>
                     </div>
                 </div>
@@ -104,13 +116,36 @@ export default function List({ auth, paginated, categories, queryParameters }) {
                         Create Product
                     </Link>
                 </div>
-                <div className="mt-2 flex justify-center items-center">
+                <div className="mt-2 flex flex-col justify-center items-center gap-2">
                     <TextInput
-                        type="text"
+                        type="search"
                         name="search"
                         placeholder="Search products..."
                         className="max-w-xl w-full"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
                     />
+                    <PrimaryButton
+                        className="ml-2"
+                        onClick={() => {
+                            router.get(
+                                route(
+                                    "products.index",
+                                    {
+                                        search: search,
+                                        categories: queryParameters.categories,
+                                    },
+                                    {
+                                        only: ["paginated"],
+                                        preserveState: true,
+                                        preserveScroll: true,
+                                    }
+                                )
+                            );
+                        }}
+                    >
+                        Search
+                    </PrimaryButton>
                 </div>
                 <div className="mt-4 flex items-center justify-center">
                     <div

@@ -19,6 +19,7 @@ class ProductController extends Controller
     {
         $queryParameters = request()->query();
         $categories = explode('_', $queryParameters['categories'] ?? '');
+        $search = $queryParameters['search'] ?? '';
         $query = Product::orderBy('created_at', 'desc');
 
         if (!empty($categories[0])) {
@@ -27,6 +28,10 @@ class ProductController extends Controller
             } else {
                 $query->whereIn('category_id', $categories);
             }
+        }
+
+        if (!empty($search)) {
+            $query->where('name', 'like', '%' . $search . '%');
         }
 
         $products = $query->paginate(12);
