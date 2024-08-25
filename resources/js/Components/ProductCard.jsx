@@ -9,17 +9,17 @@ import "swiper/css/pagination";
 
 export default function ProductCard({ product, className = "" }) {
     const { id, name, description, price, category, images } = product;
-    const { delete: deleteProduct } = useForm({});
+    // const { delete: deleteProduct } = useForm({});
 
-    const handleDelete = (e, id) => {
-        if (confirm("Are you sure you want to delete this product?")) {
-            deleteProduct(route("products.destroy", [id]), {
-                onFinish: () => {
-                    router.reload({ only: ["products"] });
-                },
-            });
-        }
-    };
+    // const handleDelete = (e, id) => {
+    //     if (confirm("Are you sure you want to delete this product?")) {
+    //         deleteProduct(route("products.destroy", [id]), {
+    //             onFinish: () => {
+    //                 router.reload({ only: ["products"] });
+    //             },
+    //         });
+    //     }
+    // };
 
     return (
         <div
@@ -51,6 +51,7 @@ export default function ProductCard({ product, className = "" }) {
                     No Image
                 </div>
             )}
+
             <div className="flex flex-col mt-3">
                 <h2 className="truncate font-bold text-lg">{name}</h2>
             </div>
@@ -66,23 +67,33 @@ export default function ProductCard({ product, className = "" }) {
                         {category ? "#" + category.name : "#no category"}
                     </div>
                 </div>
-                <Link href={route("products.show", [id])}>
-                    <FontAwesomeIcon
-                        icon={faEye}
-                        className="hover:text-blue-500 hover:cursor-pointer hover:scale-125"
-                    />
+                <Link
+                    href={route("products.show", [id])}
+                    className="inline-flex items-center px-4 py-2 bg-zinc-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-zinc-700 active:bg-gray-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150"
+                >
+                    View Product
+                    <FontAwesomeIcon icon={faEye} className="text-lg ml-2" />
                 </Link>
-                <Link href={route("products.edit", [id])}>
+                {/* <Link
+                        href={route("products.show", [id])}
+                        className="flex items-center"
+                    >
+                        <FontAwesomeIcon
+                            icon={faEye}
+                            className="hover:text-blue-500 hover:cursor-pointer hover:scale-125 text-2xl"
+                        />
+                    </Link>
+                    <Link href={route("products.edit", [id])}>
+                        <FontAwesomeIcon
+                            icon={faPencil}
+                            className="hover:text-blue-500 hover:cursor-pointer hover:scale-125"
+                        />
+                    </Link>
                     <FontAwesomeIcon
-                        icon={faPencil}
-                        className="hover:text-blue-500 hover:cursor-pointer hover:scale-125"
-                    />
-                </Link>
-                <FontAwesomeIcon
-                    icon={faTrash}
-                    className="hover:text-red-500 hover:cursor-pointer hover:scale-125"
-                    onClick={(e) => handleDelete(e, id)}
-                />
+                        icon={faTrash}
+                        className="hover:text-red-500 hover:cursor-pointer hover:scale-125"
+                        onClick={(e) => handleDelete(e, id)}
+                    /> */}
             </div>
         </div>
     );

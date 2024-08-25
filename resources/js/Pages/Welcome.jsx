@@ -168,6 +168,9 @@ export default function Welcome({
                                 Create Product
                             </Link>
                         </div> */}
+                        <div className="flex justify-center items-center mb-5">
+                            <h1 className="font-bold text-2xl">Products</h1>
+                        </div>
                         <div className="mt-2 flex flex-col justify-center items-center gap-2">
                             <TextInput
                                 type="search"
@@ -209,7 +212,7 @@ export default function Welcome({
                                     icon={faFilter}
                                     className="text-zinc-800 text-lg"
                                 />
-                                <h2 className="text-lg">Filter Category</h2>
+                                <div className="text-lg">Filter Category</div>
                             </div>
                         </div>
 
