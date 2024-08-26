@@ -27,9 +27,6 @@ export default function Authenticated({ user, header, children }) {
                                         alt="App Logo"
                                         className="h-12"
                                     />
-                                    {/* <h1 className="text-lg font-bold">
-                                        John's Magic Emporium
-                                    </h1> */}
                                 </Link>
                             </div>
 
