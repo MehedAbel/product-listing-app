@@ -2,13 +2,13 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import ContentLayout from "@/Layouts/ContentLayout";
 import { Head, Link, router } from "@inertiajs/react";
 import PaginationLinks from "@/Components/PaginationLinks";
-import ProductCard from "@/Components/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Modal from "@/Components/Modal";
 import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
+import ProductsTable from "@/Components/ProductsTable";
 
 export default function List({ auth, paginated, categories, queryParameters }) {
     const products = paginated.data;
@@ -107,8 +107,7 @@ export default function List({ auth, paginated, categories, queryParameters }) {
             </Modal>
 
             <ContentLayout>
-                <div className="flex justify-between items-center">
-                    <h1 className="font-bold text-2xl">Products</h1>
+                <div className="flex justify-end items-center">
                     <Link
                         href={route("products.create")}
                         className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-lg py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
@@ -126,7 +125,7 @@ export default function List({ auth, paginated, categories, queryParameters }) {
                         onChange={(e) => setSearch(e.target.value)}
                     />
                     <PrimaryButton
-                        className="ml-2"
+                        className=""
                         onClick={() => {
                             router.get(
                                 route(
@@ -161,13 +160,7 @@ export default function List({ auth, paginated, categories, queryParameters }) {
                 </div>
 
                 {products.length > 0 ? (
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {products.map((product, index) => {
-                            return (
-                                <ProductCard product={product} key={index} />
-                            );
-                        })}
-                    </div>
+                    <ProductsTable products={products} />
                 ) : (
                     <h2 className="mt-6 flex justify-center items-center font-semibold text-2xl">
                         No Products Here

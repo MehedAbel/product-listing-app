@@ -74,26 +74,6 @@ export default function ProductCard({ product, className = "" }) {
                     View Product
                     <FontAwesomeIcon icon={faEye} className="text-lg ml-2" />
                 </Link>
-                {/* <Link
-                        href={route("products.show", [id])}
-                        className="flex items-center"
-                    >
-                        <FontAwesomeIcon
-                            icon={faEye}
-                            className="hover:text-blue-500 hover:cursor-pointer hover:scale-125 text-2xl"
-                        />
-                    </Link>
-                    <Link href={route("products.edit", [id])}>
-                        <FontAwesomeIcon
-                            icon={faPencil}
-                            className="hover:text-blue-500 hover:cursor-pointer hover:scale-125"
-                        />
-                    </Link>
-                    <FontAwesomeIcon
-                        icon={faTrash}
-                        className="hover:text-red-500 hover:cursor-pointer hover:scale-125"
-                        onClick={(e) => handleDelete(e, id)}
-                    /> */}
             </div>
         </div>
     );

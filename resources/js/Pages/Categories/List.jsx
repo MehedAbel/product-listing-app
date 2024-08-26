@@ -12,8 +12,7 @@ export default function List({ auth, paginated }) {
             <Head title="Categories" />
 
             <ContentLayout>
-                <div className="flex justify-between items-center">
-                    <h1 className="font-bold text-2xl">Categories</h1>
+                <div className="flex justify-end items-center">
                     <Link
                         href={route("categories.create")}
                         className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-lg py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
