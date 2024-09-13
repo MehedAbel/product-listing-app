@@ -3,7 +3,7 @@ import { Head, Link, router } from "@inertiajs/react";
 import PaginationLinks from "@/Components/PaginationLinks";
 import ProductCard from "@/Components/ProductCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faFilter, faBoltLightning } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Modal from "@/Components/Modal";
 import TextInput from "@/Components/TextInput";
@@ -32,11 +32,7 @@ export default function Welcome({
                 <header className="flex justify-center items-center py-7 px-6 bg-gray-100">
                     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
                         <div className="flex justify-center items-center">
-                            <img
-                                src={logo}
-                                alt="App Logo"
-                                className="hidden sm:block sm:h-20 mr-4"
-                            />
+                            <FontAwesomeIcon icon={faBoltLightning} className="hidden sm:block sm:h-11 mr-4 text-blue-500"/>
                             <h1 className="text-md sxs:text-lg xs:text-xl sm:text-2xl text-zinc-800 font-bold">
                                 Zeus's Brilliant Emporium
                             </h1>

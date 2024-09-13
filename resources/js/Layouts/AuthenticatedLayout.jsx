@@ -4,7 +4,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserShield } from "@fortawesome/free-solid-svg-icons";
+import { faUserShield, faBoltLightning } from "@fortawesome/free-solid-svg-icons";
 import logo from "/public/images/app-logo.svg";
 
 export default function Authenticated({ user, header, children }) {
@@ -17,20 +17,16 @@ export default function Authenticated({ user, header, children }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
-                            <div className="shrink-0 flex items-center justify-center">
+                            <div className="shrink-0 flex items-center justify-center ml-4">
                                 <Link
                                     href="/"
-                                    className="flex items-center hover:scale-105 transition-transform"
+                                    className="flex items-center hover:scale-105 hover:text-blue-500 transition-transform"
                                 >
-                                    <img
-                                        src={logo}
-                                        alt="App Logo"
-                                        className="h-12"
-                                    />
+                                    <FontAwesomeIcon icon={faBoltLightning} className="h-7"/>
                                 </Link>
                             </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <div className="hidden space-x-5 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     href={route("dashboard")}
                                     active={route().current("dashboard")}
