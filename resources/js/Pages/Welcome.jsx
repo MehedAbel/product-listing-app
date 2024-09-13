@@ -38,7 +38,7 @@ export default function Welcome({
                                 className="hidden sm:block sm:h-20 mr-4"
                             />
                             <h1 className="text-md sxs:text-lg xs:text-xl sm:text-2xl text-zinc-800 font-bold">
-                                Magic Emporium
+                                Zeus's Brilliant Emporium
                             </h1>
                         </div>
                         <nav className="flex flex-1 justify-end items-center gap-2 px-2 m-0">
