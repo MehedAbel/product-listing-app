@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 use Stringable;
 
 /**
@@ -28,8 +29,14 @@ class ProductImageFactory extends Factory
 
         $filename = Str::random(10) . '.jpg';
 
-        $imageContent = Http::get($imageUrl)->body();
-        Storage::disk('public')->put($directory . '/' . $filename, $imageContent);
+        try {
+            $imageContent = Http::get($imageUrl)->body();
+            Storage::disk('public')->put($directory . '/' . $filename, $imageContent);
+        } catch (\Exception $e) {
+            Log::warning("Error downloading image: " . $e->getMessage());
+
+            $filename = 'frozen_lake.jpg';
+        }
 
         return [
             'product_id' => $this->faker->numberBetween(1, 24),

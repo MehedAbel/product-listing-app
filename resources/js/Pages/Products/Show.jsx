@@ -1,11 +1,17 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import GuestLayout from "@/Layouts/GuestLayout";
 import ContentLayout from "@/Layouts/ContentLayout";
 import { Head } from "@inertiajs/react";
 import ImageGallery from "@/Components/ImageGallery";
+import UnAuthenticatedLayout from "@/Layouts/UnAuthenticatedLayout";
 
 export default function Show({ auth, product, category, images }) {
+    const isAuthenticated = Boolean(auth?.user);
+    const Layout = isAuthenticated ? AuthenticatedLayout : UnAuthenticatedLayout;
+
     return (
-        <AuthenticatedLayout user={auth.user}>
+        <>
+        <Layout user={auth.user}>
             <Head title="Show Product" />
 
             <ContentLayout>
@@ -25,8 +31,10 @@ export default function Show({ auth, product, category, images }) {
                     <div className="flex justify-start w-full text-md text-blue-600">
                         {category ? "#" + category.name : "#no category"}
                     </div>
+                    <div className="flex justify-start w-full text-md">Contact: {product.contact}</div>
                 </div>
             </ContentLayout>
-        </AuthenticatedLayout>
+        </Layout>
+        </>
     );
 }

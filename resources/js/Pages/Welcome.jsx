@@ -34,7 +34,7 @@ export default function Welcome({
                         <div className="flex justify-center items-center">
                             <FontAwesomeIcon icon={faBoltLightning} className="hidden sm:block sm:h-11 mr-4 text-blue-500"/>
                             <h1 className="text-md sxs:text-lg xs:text-xl sm:text-2xl text-zinc-800 font-bold">
-                                Zeus's Brilliant Emporium
+                                Product Catalog
                             </h1>
                         </div>
                         <nav className="flex flex-1 justify-end items-center gap-2 px-2 m-0">
