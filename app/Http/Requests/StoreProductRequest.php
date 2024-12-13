@@ -39,6 +39,7 @@ class StoreProductRequest extends FormRequest
             'price' => $this->price,
             'description' => $this->description,
             'category_id' => $this->category_id,
+            'user_id' => app('auth')->user()->id,
         ]);
 
         if ($this->hasFile('images')) {

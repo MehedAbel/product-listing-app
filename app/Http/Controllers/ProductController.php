@@ -92,6 +92,7 @@ class ProductController extends Controller
             'product' => $product,
             'category' => $product->category()->get()->first(),
             'images' => $images,
+            'product_owner' => $product->user()->get()->first(),
         ]);
     }
 

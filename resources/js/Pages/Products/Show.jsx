@@ -5,7 +5,7 @@ import { Head } from "@inertiajs/react";
 import ImageGallery from "@/Components/ImageGallery";
 import UnAuthenticatedLayout from "@/Layouts/UnAuthenticatedLayout";
 
-export default function Show({ auth, product, category, images }) {
+export default function Show({ auth, product, category, images, product_owner }) {
     const isAuthenticated = Boolean(auth?.user);
     const Layout = isAuthenticated ? AuthenticatedLayout : UnAuthenticatedLayout;
 
@@ -28,10 +28,13 @@ export default function Show({ auth, product, category, images }) {
                         <h2 className="font-semibold text-2xl">DESCRIPTION</h2>
                         <div>{product.description}</div>
                     </div>
+                    <div className="flex justify-start w-full text-md">
+                        <b>Contact:{`\xa0`}</b> 
+                        <a className="italic text-blue-600 underline" href={"mailto:" + product_owner.email}>{product_owner.email}</a>
+                    </div>
                     <div className="flex justify-start w-full text-md text-blue-600">
                         {category ? "#" + category.name : "#no category"}
                     </div>
-                    <div className="flex justify-start w-full text-md">Contact: {product.contact}</div>
                 </div>
             </ContentLayout>
         </Layout>

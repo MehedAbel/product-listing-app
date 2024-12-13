@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -16,11 +17,18 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $admin = User::where('email', 'products_owner@prod.com')->first();
+
+        if (!$admin) {
+            throw new \Exception('Admin user not found');
+        }
+
         return [
             'name' => $this->faker->name,
             'description' => $this->faker->text,
             'price' => $this->faker->randomFloat(2, 1, 1000),
             'category_id' => $this->faker->numberBetween(1, 20),
+            'user_id' => $admin->id
         ];
     }
 }
