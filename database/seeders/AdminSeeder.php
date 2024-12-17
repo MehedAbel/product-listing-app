@@ -19,6 +19,16 @@ class AdminSeeder extends Seeder
             $user->name = 'Johnny';
             $user->email = 'products_owner@prod.com';
             $user->password = Hash::make('parola');
+            $user->role = 'admin';
+            $user->save();
+        }
+
+        if (!User::where('email', 'guest@prod.com')->exists()) {
+            $user = new User();
+            $user->name = 'John';
+            $user->email = 'guest@prod.com';
+            $user->password = Hash::make('parola');
+            $user->role = 'client';
             $user->save();
         }
 

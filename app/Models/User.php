@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -45,9 +46,21 @@ class User extends Authenticatable
         ];
     }
 
+    protected $attributes = [
+        'role' => 'client',
+    ];
+
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function shoppingBag() {
+        return $this->hasMany(ShoppingBag::class);
+    }
+
+    public function orders() {
+        return $this->hasMany(Order::class);
     }
 
     public function comments()
