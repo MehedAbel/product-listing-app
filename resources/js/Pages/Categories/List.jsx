@@ -4,11 +4,11 @@ import { Head, Link } from "@inertiajs/react";
 import CategoriesTable from "@/Components/CategoriesTable";
 import PaginationLinks from "@/Components/PaginationLinks";
 
-export default function List({ auth, paginated }) {
+export default function List({ user, paginated }) {
     const categories = paginated.data;
 
     return (
-        <AuthenticatedLayout user={auth.user}>
+        <AuthenticatedLayout user={user}>
             <Head title="Categories" />
 
             <ContentLayout>

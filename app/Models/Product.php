@@ -36,12 +36,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function shoppingBags() {
-        return $this->belongsToMany(ShoppingBag::class)->withPivot('quantity');
-    }
-
-    public function orders() {
-        return $this->belongsToMany(Order::class)->withPivot('quantity', 'price');
+    public function productUserCarts() {
+        return $this->hasMany(ProductUserCart::class);
     }
 
     public function comments()

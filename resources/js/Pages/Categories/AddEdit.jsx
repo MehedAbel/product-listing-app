@@ -7,7 +7,7 @@ import InputError from "@/Components/InputError.jsx";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 import { Transition } from "@headlessui/react";
 
-export default function AddEdit({ category, auth }) {
+export default function AddEdit({ category, user }) {
     const { data, setData, post, errors, processing } = useForm({
         name: category?.name || "",
         order: category?.order || "",
@@ -23,7 +23,7 @@ export default function AddEdit({ category, auth }) {
     };
 
     return (
-        <AuthenticatedLayout user={auth.user}>
+        <AuthenticatedLayout user={user}>
             <Head title="Add Edit Category" />
 
             <ContentLayout>

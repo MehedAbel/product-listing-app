@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductUserCartController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products/{product}', [ProductController::class, 'show'])->where('product', '[0-9]+')->name('products.show');
@@ -24,6 +25,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     });
 
     Route::resource('products', ProductController::class)->except(['show']);
+
+    Route::group(['prefix' => 'shopping-bag', 'as' => 'shopping-bag.'], function () {
+        Route::get('/', [ProductUserCartController::class, 'getProducts'])->name('list');
+        Route::post('/add', [ProductUserCartController::class, 'addProduct'])->name('add');
+        Route::delete('/remove', [ProductUserCartController::class, 'delete'])->name('remove');
+    });
+
 });
 
 Route::middleware('auth')->group(function () {

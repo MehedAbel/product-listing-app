@@ -33,18 +33,30 @@ export default function Authenticated({ user, header, children }) {
                                 >
                                     Dashboard
                                 </NavLink>
-                                <NavLink
-                                    href={route("categories.list")}
-                                    active={route().current("categories.list")}
-                                >
-                                    Categories
-                                </NavLink>
-                                <NavLink
-                                    href={route("products.index")}
-                                    active={route().current("products.index")}
-                                >
-                                    Products
-                                </NavLink>
+                                {user.role === "client" && (
+                                    <NavLink
+                                        href={route("shopping-bag.list")}
+                                        active={route().current("shopping-bag.list")}
+                                    >
+                                        Shopping Bag
+                                    </NavLink>
+                                )}
+                                {user.role === "admin" && (
+                                    <NavLink
+                                        href={route("categories.list")}
+                                        active={route().current("categories.list")}
+                                    >
+                                        Categories
+                                    </NavLink>
+                                )}
+                                {user.role === "admin" && (
+                                    <NavLink
+                                        href={route("products.index")}
+                                        active={route().current("products.index")}
+                                    >
+                                        Products
+                                    </NavLink>
+                                )}
                             </div>
                         </div>
 

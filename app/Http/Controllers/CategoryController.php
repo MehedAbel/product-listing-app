@@ -6,24 +6,29 @@ use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     public function list()
     {
         return Inertia::render('Categories/List', [
+            'user' => Auth::user(),
             'paginated' => Category::orderBy('created_at', 'desc')->paginate(15),
         ]);
     }
 
     public function create()
     {
-        return Inertia::render('Categories/AddEdit', []);
+        return Inertia::render('Categories/AddEdit', [
+            'user' => Auth::user(),
+        ]);
     }
 
     public function update(Category $category)
     {
         return Inertia::render('Categories/AddEdit', [
+            'user' => Auth::user(),
             'category' => $category
         ]);
     }

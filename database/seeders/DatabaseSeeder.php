@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
-            ProductImageSeeder::class,
+            // ProductImageSeeder::class,
         ]);
 
         // User::factory()->create([
