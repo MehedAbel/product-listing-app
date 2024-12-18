@@ -9,9 +9,11 @@ import Modal from "@/Components/Modal";
 import TextInput from "@/Components/TextInput";
 import PrimaryButton from "@/Components/PrimaryButton";
 import logo from "/public/images/app-logo.svg";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import UnAuthenticatedLayout from "@/Layouts/UnAuthenticatedLayout";
 
 export default function Welcome({
-    auth,
+    user,
     paginated,
     categories,
     queryParameters,
@@ -25,31 +27,14 @@ export default function Welcome({
 
     const [search, setSearch] = useState(queryParameters.search || "");
 
+    const isAuthenticated = Boolean(user);
+    const Layout = isAuthenticated ? AuthenticatedLayout : UnAuthenticatedLayout;
+
     return (
         <>
+        <Layout user={user}>
             <Head title="Welcome" />
             <div className="flex flex-col w-full min-h-screen">
-                <header className="flex justify-center items-center py-7 px-6 bg-gray-100">
-                    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-                        <div className="flex justify-center items-center">
-                            <FontAwesomeIcon icon={faBoltLightning} className="hidden sm:block sm:h-11 mr-4 text-blue-500"/>
-                            <h1 className="text-md sxs:text-lg xs:text-xl sm:text-2xl text-zinc-800 font-bold">
-                                Product Catalog
-                            </h1>
-                        </div>
-                        <nav className="flex flex-1 justify-end items-center gap-2 px-2 m-0">
-                            {auth.user && (
-                                <Link
-                                    href={route("dashboard")}
-                                    className="flex items-center transition ease-in-out duration-100 text-black border border-zinc-700 rounded-lg py-2 px-3 font-bold cursor-pointer tracking-wider border-transparent hover:bg-zinc-700 hover:text-white"
-                                >
-                                    Dashboard
-                                </Link>
-                            )}
-                        </nav>
-                    </div>
-                </header>
-
                 <main className="px-6 flex flex-1 bg-gradient-to-b from-gray-100 to-gray-200">
                     <Modal
                         show={isOpen}
@@ -213,6 +198,7 @@ export default function Welcome({
                     </p>
                 </footer>
             </div>
+            </Layout>
         </>
     );
 }

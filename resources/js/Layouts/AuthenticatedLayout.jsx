@@ -23,6 +23,7 @@ export default function Authenticated({ user, header, children }) {
                                     className="flex items-center hover:scale-105 hover:text-blue-500 transition-transform"
                                 >
                                     <FontAwesomeIcon icon={faBoltLightning} className="h-7"/>
+                                    <h1 className="font-bold text-2xl ml-3">Store</h1>
                                 </Link>
                             </div>
 
@@ -39,6 +40,22 @@ export default function Authenticated({ user, header, children }) {
                                         active={route().current("shopping-bag.list")}
                                     >
                                         Shopping Bag
+                                    </NavLink>
+                                )}
+                                {user.role === "client" && (
+                                    <NavLink
+                                        href={route("orders.index")}
+                                        active={route().current("orders.index")}
+                                    >
+                                        Orders
+                                    </NavLink>
+                                )}
+                                {user.role === "admin" && (
+                                    <NavLink
+                                        href={route("orders.all")}
+                                        active={route().current("orders.all")}
+                                    >
+                                        Orders
                                     </NavLink>
                                 )}
                                 {user.role === "admin" && (
@@ -176,18 +193,46 @@ export default function Authenticated({ user, header, children }) {
                             >
                                 Dashboard
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink
-                                href={route("categories.list")}
-                                active={route().current("categories.list")}
-                            >
-                                Categories
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink
-                                href={route("products.index")}
-                                active={route().current("products.index")}
-                            >
-                                Products
-                            </ResponsiveNavLink>
+                            {user.role === "client" && (
+                                <ResponsiveNavLink
+                                    href={route("shopping-bag.list")}
+                                    active={route().current("shopping-bag.list")}
+                                >
+                                    Shopping Bag
+                                </ResponsiveNavLink>
+                            )}
+                            {user.role === "client" && (
+                                <ResponsiveNavLink
+                                    href={route("orders.index")}
+                                    active={route().current("orders.index")}
+                                >
+                                    Orders
+                                </ResponsiveNavLink>
+                            )}
+                            {user.role === "admin" && (
+                                <ResponsiveNavLink
+                                    href={route("orders.all")}
+                                    active={route().current("orders.all")}
+                                >
+                                    Orders
+                                </ResponsiveNavLink>
+                            )}
+                            {user.role === "admin" && (
+                                <ResponsiveNavLink
+                                    href={route("categories.list")}
+                                    active={route().current("categories.list")}
+                                >
+                                    Categories
+                                </ResponsiveNavLink>
+                            )}
+                            {user.role === "admin" && (
+                                <ResponsiveNavLink
+                                    href={route("products.index")}
+                                    active={route().current("products.index")}
+                                >
+                                    Products
+                                </ResponsiveNavLink>
+                            )}
                             <ResponsiveNavLink
                                 href={route("profile.edit")}
                                 active={route().current("profile.edit")}

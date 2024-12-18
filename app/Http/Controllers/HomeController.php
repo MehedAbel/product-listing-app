@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -49,6 +50,7 @@ class HomeController extends Controller
         $categories->prepend((object) ['id' => 'none', 'name' => 'No Category']);
 
         return Inertia::render('Welcome', [
+            'user' => Auth::user(),
             'paginated' => $products,
             'categories' => $categories,
             'queryParameters' => $queryParameters,

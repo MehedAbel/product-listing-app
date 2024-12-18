@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductUserCartController;
 
@@ -30,6 +31,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         Route::get('/', [ProductUserCartController::class, 'getProducts'])->name('list');
         Route::post('/add', [ProductUserCartController::class, 'addProduct'])->name('add');
         Route::delete('/remove', [ProductUserCartController::class, 'delete'])->name('remove');
+    });
+
+    Route::group(['prefix' => 'orders', 'as' => 'orders.'], function () {
+        Route::post('/', [OrderController::class, 'createOrder'])->name('create');
+        Route::get('/index', [OrderController::class, 'index'])->name('index');
+        Route::get('/all', [OrderController::class, 'allOrders'])->name('all');
+        Route::delete('/delete', [OrderController::class, 'deleteOrder'])->name('delete');
     });
 
 });

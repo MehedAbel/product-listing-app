@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -89,6 +90,7 @@ class ProductController extends Controller
         }
 
         return Inertia::render('Products/Show', [
+            'user' => Auth::user(),
             'product' => $product,
             'category' => $product->category()->get()->first(),
             'images' => $images,

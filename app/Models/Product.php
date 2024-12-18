@@ -39,14 +39,4 @@ class Product extends Model
     public function productUserCarts() {
         return $this->hasMany(ProductUserCart::class);
     }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
-    public function favorites()
-    {
-        return $this->hasMany(Favorite::class);
-    }
 }
