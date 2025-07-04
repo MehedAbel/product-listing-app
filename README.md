@@ -39,5 +39,9 @@ The application is split into two user experiences: the Admin ( Store owner ) an
 
 ## Screenshots
 1. **User Authentication & Profile**
+   
+![login](https://github.com/user-attachments/assets/68d76e56-0e8d-48f4-90a5-cf228688feb5)
+![register](https://github.com/user-attachments/assets/833b0fdd-e7ec-4c9d-aead-33a485622b58)
+![profile](https://github.com/user-attachments/assets/5d570234-c9b1-4e76-bb67-612edf6d5c4f)
 
 2. ****
