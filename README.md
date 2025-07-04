@@ -1,11 +1,11 @@
 # Product Listing Website
-## About
+## About <a name="about"></a>
 An e-commerce web application for site owners to manage products, categories and orders. The customer can create an account to buy the listed products.
 
 ## Key Features
 The application is split into two user experiences: the Admin ( Store owner ) and the Customer.
 
-### General Features
+### General Features <a name="general-features"></a>
 - **Secure login and registration**.
 - **Profile management**: Users can update their personal information and password or delete their account.
 - **Product showcasing**: The users can view the listed products in a clean grid-based layout.
