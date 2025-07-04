@@ -36,4 +36,8 @@ The application is split into two user experiences: the Admin ( Store owner ) an
 - **Backend/Frontend bridge**: Inertia
 - **Database**: PostgreSQL
 - **Styling**: TailwindCSS
-- 
+
+## Screenshots
+1. **User Authentication & Profile**
+
+2. ****
