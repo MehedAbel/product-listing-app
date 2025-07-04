@@ -30,11 +30,16 @@ class ProductImageFactory extends Factory
         $filename = Str::random(10) . '.jpg';
 
         try {
-            $imageContent = Http::get($imageUrl)->body();
-            Storage::disk('public')->put($directory . '/' . $filename, $imageContent);
-        } catch (\Exception $e) {
-            Log::warning("Error downloading image: " . $e->getMessage());
+            $response = Http::timeout(10)->withoutVerifying()->get($imageUrl);
 
+            if (!$response->successful()) {
+                $filename = 'frozen_lake.jpg';
+            } else {
+                Storage::disk('public')->put($directory . '/' . $filename, $response->body());
+            }
+
+        } catch (\Exception $e) {
+            echo "Http get failed: " . $e->getMessage();
             $filename = 'frozen_lake.jpg';
         }
 
@@ -44,3 +49,4 @@ class ProductImageFactory extends Factory
         ];
     }
 }
+
