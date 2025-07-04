@@ -38,7 +38,50 @@ The application is split into two user experiences: the Admin ( Store owner ) an
 - **Styling**: TailwindCSS
 
 ## Getting Started
+### Prerequisites
+- PHP
+- Composer
+- NPM
+- NodeJS
+- PostgreSQL
 
+### How to run
+
+1. **Clone the repo** ```git clone https://github.com/MehedAbel/product-listing-app.git```
+
+2. **Create an sql database for the project**
+
+3. **Set database name, username, and password in the project**
+- Open the project in the root folder
+- Create a .env file and copy the contents from .env.example inside
+- Change DB_DATABASE, DB_USERNAME, and DB_PASSWORD values to match your values
+
+4. **Php.ini config**
+- Go to your php install location and open the Php.ini file
+- Make sure the following extensions are enabled:
+ * extension=openssl
+ * extension=mbstring
+ * extension=fileinfo
+ * extension=pdo_pgsql
+
+5. **Open a terminal in the root folder of the project and run these commands in order**
+- ```composer install```
+- ```npm install```
+- ```php artisan storage:link```
+- ```php artisan key:generate```
+- ```php artisan migrate:fresh --seed```
+
+6. **Run the application**: Run the following commands in 2 separate terminals
+- ```php artisan serve```
+- ```npm run dev```
+
+**Default Admin Account:**
+- Email: products_owner@prod.com
+- Password: pass
+
+**Default Client Account:**
+- Email: guest@prod.com
+- Password: pass
 
 ## Screenshots
 1. **User Authentication & Profile**
