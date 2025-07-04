@@ -37,6 +37,9 @@ The application is split into two user experiences: the Admin ( Store owner ) an
 - **Database**: PostgreSQL
 - **Styling**: TailwindCSS
 
+## Getting Started
+
+
 ## Screenshots
 1. **User Authentication & Profile**
    
